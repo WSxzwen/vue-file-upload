@@ -8,8 +8,8 @@
     "url": "https://github.com/marchFantasy/vue-file-upload"
   },
   "scripts": {
-    "start": "NODE_ENV=development webpack-dev-server --hot --inline --config=./build/webpack.config.js --port=6080 --content-base ./demo",
-    "release": "NODE_ENV=production ./node_modules/.bin/webpack --config ./build/webpack.production.js"
+    "start": "cross-env NODE_ENV=development webpack-dev-server --hot --inline --config=./build/webpack.config.js --port=6080 --content-base ./demo",
+    "release": "cross-env NODE_ENV=production ./node_modules/.bin/webpack --config ./build/webpack.production.js"
   },
   "keywords": [
     "fileuplaod",
@@ -27,6 +27,7 @@
     "babel-plugin-transform-runtime": "^6.8.0",
     "babel-preset-env": "^1.6.0",
     "babel-preset-stage-2": "^6.24.1",
+    "cross-env": "^5.0.5",
     "css-loader": "^0.28.7",
     "file-loader": "^0.8.4",
     "friendly-errors-webpack-plugin": "^1.6.1",

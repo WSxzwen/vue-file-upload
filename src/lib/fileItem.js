@@ -18,7 +18,8 @@ class FileItem{
       isSuccess: false,
       isCancel: false,
       isError: false,
-      progress: 0
+      progress: 0,
+      fileCallBack: function() {}
     },{
       name:fileAlias.name,
       size:fileAlias.size,
@@ -30,8 +31,9 @@ class FileItem{
  * [upload 上传文件]
  * @return {[type]} [description]
  */
-  upload(){
+  upload(file){
     try{
+      this.fileCallBack = file;
       this.uploader.uploadItem(this);
     }catch(e){
 
@@ -106,6 +108,7 @@ class FileItem{
     this.isCancel = false;
     this.isError = false;
     this.progress = 100;
+    this.fileCallBack();
   }
   /**
    * [onError 上传错误，状态变更]
@@ -119,6 +122,7 @@ class FileItem{
     this.isCancel = false;
     this.isError = true;
     this.progress = 0;
+    this.fileCallBack();
   }
   /**
    * [onAbort 取消上传，上传错误，状态变更]
