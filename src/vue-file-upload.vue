@@ -92,6 +92,10 @@ export default{
         type:Function,
         default:noop
     },
+    onChange: {
+        type:Function,
+        default:noop
+    },    
     filters:{
       type:Array,
       default:()=>{
@@ -196,6 +200,7 @@ export default{
       this.fileUploader.addToQueue(elTargetFiles);
       this.$emit('onAdd',this.fileUploader.getAll());
       this._resetInput();
+      this.$emit('onChange');      
     },
     _resetInput(){
         //重置input值，可以上传重复

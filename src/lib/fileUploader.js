@@ -217,6 +217,7 @@ class FileUploader{
    * @return {[type]}          [description]
    */
   _onCompleteUpload(fileItem, response, status, headers){
+    fileItem.fileCallBack(fileItem, response, status, headers);
     this.onCompleteUpload(fileItem, response, status, headers);
     var nextItem = this.getNextReadyItems()[0];
     this.isUploading = false;
